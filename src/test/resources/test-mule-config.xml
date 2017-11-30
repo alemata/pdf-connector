@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:pdfconnector="http://www.mulesoft.org/schema/mule/pdfconnector"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/pdfconnector http://www.mulesoft.org/schema/mule/pdfconnector/current/mule-pdfconnector.xsd">
+
+    <pdfconnector:config name="pdfconnector-config" configId="configId">
+        <pdfconnector:connection requiredParameter="aValue" />
+    </pdfconnector:config>
+
+    <flow name="sayHiFlow">
+        <pdfconnector:say-hi person="Mariano Gonzales"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <pdfconnector:retrieve-info config-ref="pdfconnector-config"/>
+    </flow>
+
+</mule>
